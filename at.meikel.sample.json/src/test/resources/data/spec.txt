@@ -1,0 +1,20 @@
+/static
+  /html
+  /images
+  /...
+/model
+  /website.cfg
+  /website.vm
+  /main
+    /main.cfg
+	/<some-name>.cfg
+    /index.content
+	/<another-name>.content
+	/main.vm
+  /special1
+    /special1.vm
+	/special1.cfg
+	/special1.content
+  /gallery
+    /gallery1.content
+	/gallery2.content

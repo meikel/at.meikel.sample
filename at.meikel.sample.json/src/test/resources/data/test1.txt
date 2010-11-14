@@ -1,0 +1,22 @@
+{
+	website: {
+		title: "La la la",
+		color: {
+			bg: "aaa",
+			fg:	"bbb"
+		}
+	},
+	
+	menue: [
+		{
+			title: 		"Main",
+			content:	"main.html"
+		}, {
+			title:		"Gallery",
+			content:	"gallery.html"
+		}, {
+			title:		"Links",
+			content:	"links.html"
+		}
+	]
+}
