@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>at.meikel.sample</artifactId>
+		<groupId>at.meikel.sample</groupId>
+		<version>1.0.3</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>at.meikel.sample</groupId>
+	<artifactId>at.meikel.sample.javascript</artifactId>
+	<name>JavaScript Sample</name>
+	<version>1.0.3</version>
+	<description>JavaScript Sample</description>
+	<!-- <pluginRepositories>
+		<pluginRepository>
+			<id>moyrax-releases</id>
+			<name>Moyrax Artifactory</name>
+			<url>http://www.moyrax.com:8081/nexus/content/repositories/moyrax-releases/</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories> -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>org.mozilla.javascript.tools.shell.Main</mainClass>
+					<arguments>
+						<argument>src\main\javascript\hello-world.js</argument>
+						<argument>src\main\javascript\lib.js</argument>
+					</arguments>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>test</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+						<configuration>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>rhino</groupId>
+			<artifactId>js</artifactId>
+			<version>1.7R2</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>org.moyrax.qunit</groupId>
+			<artifactId>qunit-maven-plugin</artifactId>
+			<version>1.2.1</version>
+		</dependency> -->
+	</dependencies>
+</project>
