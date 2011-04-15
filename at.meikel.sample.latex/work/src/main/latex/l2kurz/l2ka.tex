@@ -1,0 +1,91 @@
+% master: l2kurz.tex
+% L2KA.TEX - Anhang der LaTeX-Kurzbeschreibung v2.x, Erlangen 1998, 1999
+% 1999-04-18 WaS
+
+\appendix
+\enlargethispage{1\baselineskip}
+
+\section{Mit dem Paket \texttt{textcomp} verf"ugbare Symbole}
+\label{textsymbols}
+
+\iftcfonts % nur wenn die tc-Fonts vorhanden sind ...
+
+\begingroup % We want to change the style of footnotes in this file only
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} 
+
+{\small
+\begin{tabbing}
+\quad\quad\=\texttt{Mtextquotestraightdblbase}\hspace{1cm}\=\quad\quad\=\kill
+\textquotestraightbase \> \verb+\textquotestraightbase+\footnotemark[1]  \> \textquotestraightdblbase \> \verb+\textquotestraightdblbase+\footnotemark[1] \\
+\texttwelveudash \> \verb+\texttwelveudash+\footnotemark[1]  \> \textthreequartersemdash \> \verb+\textthreequartersemdash+\footnotemark[1] \\
+\textleftarrow \> \verb+\textleftarrow+ \> \textrightarrow \> \verb+\textrightarrow+\\
+\textblank \> \verb+\textblank+ \> \textdollar \> \verb+\$+\footnotemark[1] \\
+\textquotesingle \> \verb+\textquotesingle+\footnotemark[1]  \> \textasteriskcentered \> \verb+\textasteriskcentered+\footnotemark[1] \\
+\textdblhyphen \> \verb+\textdblhyphen+ \> \textfractionsolidus \> \verb+\textfractionsolidus+\footnotemark[1] \\
+\textlangle \> \verb+\textlangle+ \> \textminus \> \verb+\textminus+\footnotemark[1] \\
+\textrangle \> \verb+\textrangle+ \> \textmho \> \verb+\textmho+\\
+\textbigcircle \> \verb+\textbigcircle+ \> \textohm \> \verb+\textohm+\\
+\textlbrackdbl \> \verb+\textlbrackdbl+ \> \textrbrackdbl \> \verb+\textrbrackdbl+\\
+\textuparrow \> \verb+\textuparrow+ \> \textdownarrow \> \verb+\textdownarrow+\\
+\textasciigrave \> \verb+\textasciigrave+\footnotemark[1]  \> \textborn \> \verb+\textborn+\\
+\textdivorced \> \verb+\textdivorced+ \> \textdied \> \verb+\textdied+\\
+\textleaf \> \verb+\textleaf+ \> \textmarried \> \verb+\textmarried+\\
+\textmusicalnote \> \verb+\textmusicalnote+ \> \texttildelow \> \verb+\texttildelow+\footnotemark[1] \\
+\textdblhyphenchar \> \verb+\textdblhyphenchar+ \> \textasciibreve \> \verb+\textasciibreve+\footnotemark[1] \\
+\textasciicaron \> \verb+\textasciicaron+\footnotemark[1]  \> \textacutedbl \> \verb+\textacutedbl+\footnotemark[1] \\
+\textgravedbl \> \verb+\textgravedbl+\footnotemark[1]  \> \textdagger \> \verb+\dag+\footnotemark[1] \\
+\textdaggerdbl \> \verb+\ddag+\footnotemark[1] \> \textbardbl \> \verb+\textbardbl+\footnotemark[1] \\
+\textperthousand \> \verb+\textperthousand+\footnotemark[1] \> \textbullet \> \verb+\textbullet+\footnotemark[1] \\
+\textcelsius \> \verb+\textcelsius+\footnotemark[1]  \> \textdollaroldstyle \> \verb+\textdollaroldstyle+\\
+\textcentoldstyle \> \verb+\textcentoldstyle+ \> \textflorin \> \verb+\textflorin+\footnotemark[1] \\
+\textcolonmonetary \> \verb+\textcolonmonetary+ \> \textwon \> \verb+\textwon+\\
+\textnaira \> \verb+\textnaira+ \> \textguarani \> \verb+\textguarani+\\
+\textpeso \> \verb+\textpeso+ \> \textlira \> \verb+\textlira+\\
+\textrecipe \> \verb+\textrecipe+ \> \textinterrobang \> \verb+\textinterrobang+\\
+\textinterrobangdown \> \verb+\textinterrobangdown+ \> \textdong \> \verb+\textdong+\\
+\texttrademark \> \verb+\texttrademark+\footnotemark[1] \> \textpertenthousand \> \verb+\textpertenthousand+\\
+\textpilcrow \> \verb+\textpilcrow+ \> \textbaht \> \verb+\textbaht+\\
+\textnumero \> \verb+\textnumero+ \> \textdiscount \> \verb+\textdiscount+\\
+\textestimated \> \verb+\textestimated+ \> \textopenbullet \> \verb+\textopenbullet+\\
+\textservicemark \> \verb+\textservicemark+ \> \textlquill \> \verb+\textlquill+\\
+\textrquill \> \verb+\textrquill+ \> \textcent \> \verb+\textcent+\footnotemark[1] \\
+\textsterling \> \verb+\pounds+\footnotemark[1]  \> \textcurrency \> \verb+\textcurrency+\footnotemark[1] \\
+\textyen \> \verb+\textyen+\footnotemark[1] \> \textbrokenbar \> \verb+\textbrokenbar+\footnotemark[1] \\
+\textsection \> \verb+\S+\footnotemark[1]  \> \textasciidieresis \> \verb+\textasciidieresis+\footnotemark[1] \\
+\textcopyright \> \verb+\copyright+\footnotemark[1] \> \textordfeminine \> \verb+\textordfeminine+\footnotemark[1] \\
+\textcopyleft \> \verb+\textcopyleft+ \> \textlnot \> \verb+\textlnot+\footnotemark[1] \\
+\textcircledP \> \verb+\textcircledP+ \> \textregistered \> \verb+\textregistered+\footnotemark[1] \\
+\textasciimacron \> \verb+\textasciimacron+\footnotemark[1]  \> \textdegree \> \verb+\textdegree+\footnotemark[1] \\
+\textpm \> \verb+\textpm+\footnotemark[1] \> \texttwosuperior \> \verb+\texttwosuperior+\\
+\textthreesuperior \> \verb+\textthreesuperior+ \> \textasciiacute \> \verb+\textasciiacute+\footnotemark[1] \\
+\textmu \> \verb+\textmu+\footnotemark[1] \> \textparagraph \> \verb+\P+\footnotemark[1] \\
+\textperiodcentered \> \verb+\textperiodcentered+\footnotemark[1] \> \textreferencemark \> \verb+\textreferencemark+\\
+\textonesuperior \> \verb+\textonesuperior+ \> \textordmasculine \> \verb+\textordmasculine+\footnotemark[1] \\
+\textsurd \> \verb+\textsurd+ \> \textonequarter \> \verb+\textonequarter+\\
+\textonehalf \> \verb+\textonehalf+ \> \textthreequarters \> \verb+\textthreequarters+\\
+\textsf{\texteuro} \> \verb+\textsf{\texteuro}+ \> \texttimes \> \verb+\texttimes+\footnotemark[1] \\
+\textdiv \> \verb+\textdiv+\footnotemark[1] \\
+\end{tabbing}
+}
+
+{\footnotesize\noindent 
+In PostScript-Schriften, die nicht speziell f"ur die Verwendung mit
+\TeX{} entworfen wurden,  gibt es es normalerweise nur die mit 
+\footnotemark[1]  markierten Zeichen.
+\par}
+
+\endgroup
+
+\else
+\par\vfill
+\begin{quote}
+\large\sffamily\slshape
+Dieser Abschnitt konnte nicht gesetzt werden, weil die
+CM-Schriften mit TS1-Codierung (tc-Fonts) nicht vorhanden sind!
+\end{quote}
+
+\vfill
+\clearpage
+\fi
+
+\endinput

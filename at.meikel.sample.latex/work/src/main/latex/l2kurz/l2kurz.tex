@@ -1,0 +1,376 @@
+% This is  L2KURZ.TEX - LaTeX2e Kurzbeschreibung v2.x, Erlangen 1998, 1999
+% This was L2KURZ.TEX - LaTeX2e Kurzbeschreibung, Mainz 1994,1995
+% This was LKURZ.TEX - LaTeX Kurzbeschreibung, Uni Graz & TU Wien, 1987.
+% last changes: 1999-04-18 WaS
+%
+\newcommand{\lkver}{2.1}             % laufende Versionsnummer ...
+\newcommand{\lkdate}{18. April 1999} % ... und Datum
+%
+% Um die LaTeX-Kurzbeschreibung zu formatieren, benoetigen Sie LaTeX2e
+% (in der Version vom Juni 1998 oder neuer) und folgende Dateien:
+%
+%      l2kurz.tex (diese Datei),
+%      l2k1.tex, l2k2.tex, l2k3.tex, l2ksym.tex, 
+%      l2k4.tex, l2k5.tex, l2k6.tex, l2ka.tex, a.ps,
+%      german.sty (Version 2.5d oder neuer), latexsym.sty,
+%      textcomp.sty, alltt.sty, graphics.sty
+%
+% LaTeX2e muss ueber die "traditionellen" deutschen Trennmuster
+% dehypht.tex (von N. Schwarz, Bochum, 1993/1994) verfuegen..
+%
+% Bitte senden Sie Aenderungswuensche und Hinweise auf Fehler an
+% Walter Schmidt <walter.schmidt@arcormail.de>.
+% ----------------------------------------------------------------------
+
+\documentclass[11pt,a4paper]{article} % ergaenze `twoside', wenn gewunscht!
+\NeedsTeXFormat{LaTeX2e}[1998/06/01]  % wegen \mathring und Textsymbolen
+
+\typeout{   Copyright 1998, 1999 W.Schmidt, J.Knappen, H.Partl, I.Hyna   }
+\typeout{   Copyright 1994, 1995 J.Knappen, H.Partl, E.Schlegl, I.Hyna   }
+\typeout{   Copyright 1987 H.Partl, E.Schlegl, I.Hyna                    }
+
+\usepackage{german,latexsym,alltt}
+\usepackage[dvips,draft]{graphics} 
+% Eine ps-Datei muss gelesen werden, aber die dvi-Datei soll mit jedem 
+% dvi-Treiber, auch ohne PostScript-Unterstuetzung, zu verarbeiten sein!
+
+% Sind die TC-Fonts vorhanden?
+\newif\iftcfonts\tcfontstrue
+\def\checkfont#1{%
+  \batchmode
+  \font\test=#1\relax
+  \errorstopmode
+  \ifx\test\nullfont
+    \tcfontsfalse
+  \fi}
+\checkfont{tcrm1095}
+
+% Wenn ja, dann lade textcomp.sty:
+\iftcfonts\usepackage{textcomp}\fi
+
+% Texthoehe 46 Zeilen + \topskip
+% (Rand ueber der Kopfzeile) : (Rand unter dem Text) = 1:2
+%
+\setlength{\textheight}{46\baselineskip}
+\addtolength{\textheight}{\topskip}
+\newlength{\uppermargin}
+\setlength{\uppermargin}{\paperheight}
+\addtolength{\uppermargin}{-\textheight}
+\addtolength{\uppermargin}{-\headsep}
+\addtolength{\uppermargin}{-\headheight}
+\setlength{\uppermargin}{.333\uppermargin} % Raender oben/unten 1:2
+\addtolength{\uppermargin}{-1in}
+\setlength{\topmargin}{\uppermargin}
+%
+% Textbreite 5.2in
+% Text hor. zentriert
+%
+\setlength{\textwidth}{5.2in}
+\setlength{\oddsidemargin}{.5339in}
+\setlength{\evensidemargin}{\oddsidemargin}
+%
+
+% Seitenzahlen oben, aber keine Kopfzeile
+\pagestyle{myheadings}
+\markboth{}{}
+
+%
+\renewcommand{\textfraction}{.1}      % Make float placement easier
+\renewcommand{\floatpagefraction}{.7}
+
+
+\newcommand{\bs}{\symbol{92}} % Ein Backslash in Schreibmaschinenschrift;
+                              % nur mit OT1-Fonts zu verwenden!
+\makeatletter
+%
+% \path aus dtk.sty ( heisst dort \Path )
+\begingroup
+\gdef\path@SepI{/""}
+\gdef\path@SepII{\symbol{92}""}
+\gdef\path@SepIII{:""}
+\catcode`\/=13
+\catcode`\:=13
+\catcode`\^=0
+^catcode`\\=13
+^gdef^path{^begingroup
+  ^catcode`^/=13 
+  ^catcode`^\=13 
+  ^catcode`^:=13 
+  ^catcode`^~=12 
+  ^catcode`^$=12 %$
+  ^catcode`^_=12 
+  ^catcode`^#=12 
+  ^let/=^path@SepI
+  ^let\=^path@SepII
+  ^let:=^path@SepIII
+  ^@path}
+^gdef^@path#1{^texttt{#1}^endgroup}
+^endgroup
+%
+% LaTeXe-Symbol fuer cmss/sbc mit groesserem Absstand L-a und halbfettem Epsilon
+\DeclareRobustCommand{\sbLaTeXe}{{\fontseries{sbc}\selectfont\boldmath%
+        L\kern-.25em% -.36
+        {\sbox\z@ T%
+         \vbox to\ht\z@{\hbox{\check@mathfonts
+                              \fontsize\sf@size\z@
+                              \math@fontsfalse\selectfont
+                              A}%
+                        \vss}%
+        }%
+        \kern-.15em%
+        \TeX\kern.15em2$_{\textstyle\varepsilon}$}}
+%        
+\makeatother
+
+\newcommand\exa{\nopagebreak \begin{flushleft}\smallskip \nopagebreak
+                \begin{minipage}[t]{6cm}\sloppy}
+\newcommand\exb{\end{minipage}\kern 1cm\begin{minipage}[t]{8cm}\sloppy }
+\newcommand\exc{\end{minipage}\kern -3cm \smallskip\end{flushleft}}
+ 
+\newcommand\oben[1]{\begin{center}\begin{minipage}{#1}\hrule\medskip}
+\newcommand\unten  {\hrule \end{minipage}\end{center}}
+
+\newenvironment{ttdescription}{%
+  \renewcommand{\descriptionlabel}[1]{%
+    \hspace{\labelsep}\texttt{##1}}%
+  \begin{description}%
+}{%
+  \end{description}%
+}
+
+\newcommand{\manual}{\emph{\LaTeX-Handbuch}~\cite{manual}}
+\newcommand{\local}{\emph{Local Guide}~\cite{local}}
+
+\newenvironment{symbols}{%
+   \begin{tabbing}
+   \hspace{1cm}\=\hspace{3.5cm}\=  \hspace{1cm}\=\hspace{3.5cm}\=
+   \hspace{1cm}\=\hspace{3.5cm}\=  \kill
+   }{%
+   \end{tabbing}}
+
+\newcommand{\nfrac}[2]{\leavevmode\kern.1em%
+  \raise.5ex\hbox{\scriptsize #1}%
+  \kern-.1em/\kern-.15em%
+  \lower.25ex\hbox{\scriptsize #2}}
+
+\nonfrenchspacing      % german.sty sets frenchspacing automatically.
+%  However, some examples are pointless with frenchspacing in action. 
+%  Besides, the larger space after a sentence make the text more readable.
+
+
+\begin{document}
+
+\begin{titlepage} % <-------- neue Titelseite
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+{\Huge%
+\fontfamily{cmss}\fontseries{sbc}\selectfont
+\raggedright
+\sbLaTeXe-Kurzbeschreibung
+\rule{\textwidth}{0.75pt}
+\par
+}
+\begin{flushleft}
+  \normalsize
+  \fontfamily{cmss}\fontseries{sbc}\selectfont
+  Version \lkver\\
+  \lkdate\\[2ex]
+  Walter Schmidt\footnote{%
+    Erlangen, \texttt{<walter.schmidt@arcormail.de>}}\\
+  J"org Knappen\footnote{%
+    Electronic Technologies, Springer-Verlag, Heidelberg}\\
+  Hubert Partl\footnote{%
+    Zentraler Informatikdienst der Universit"at f"ur Bodenkultur, Wien}\\
+  Irene Hyna\footnote{%
+    Bundesministerium f"ur Wissenschaft und Verkehr, Wien}
+\end{flushleft}
+
+\vfill
+
+{\parindent=0cm
+\LaTeX{} ist ein Satzsystem, das f"ur viele Arten von
+Schrift"-st"u"cken verwendet werden kann, von einfachen Briefen bis zu
+kompletten B"uchern.  Besonders geeignet ist es f"ur 
+wissenschaftliche oder technische Dokumente. \LaTeX{} ist f"ur 
+praktisch alle verbreiteten Betriebssysteme verf"ugbar.
+ 
+Die vorliegende Kurzbeschreibung bezieht sich auf die Version
+\LaTeXe\ in der Fassung vom 1.\ Juni~1998 und sollte f"ur den 
+Einstieg in \LaTeX{} ausreichen.  
+Eine voll"-st"andige Beschreibung ent"-h"alt das \manual{}
+in Verbindung mit der Online-Dokumentation.
+}
+\setcounter{footnote}{0}
+\end{titlepage}
+
+%\newpage
+
+{\parindent=0cm\thispagestyle{empty}
+\copyright{} Copyright 1998, 1999 W.~Schmidt, J.~Knappen, H.~Partl, I.~Hyna
+\bigskip
+
+Die Verteilung dieses Dokuments in elektronischer oder gedruckter
+Form ist gestattet, solange sein Inhalt einschlie"slich Autoren- und 
+Copyright-Angabe unver"andert bleibt und die Verteilung kostenlos
+erfolgt, abgesehen von einer Ge\-b"uhr f"ur den Datentr"ager, den
+Kopiervorgang usw.
+\bigskip
+
+Die in dieser Publikation erw"ahnten Software- und Hardware-Bezeichnungen sind
+in den meisten F"allen auch eingetragene Warenzeichen und unterliegen als
+solche den gesetzlichen Bestimmungen.
+\bigskip
+
+\vfill
+
+Dieses Dokument wurde mit \LaTeX{} gesetzt.
+Sein Quelltext ist zu finden unter
+\path{<ftp://ftp.dante.de/tex-archive/info/lshort/german/>}.
+\bigskip
+
+Die Autoren danken Michael Hofmann, Rainer Sch"opf, Stefan 
+Steffens, Luzia Dietsche, Bernd Raichle und Heiko Oberdiek 
+f"ur Tips, Anmerkungen 
+und  Korrekturen.
+}
+
+\newpage
+
+\setcounter{page}{1}
+\tableofcontents
+
+\newpage
+ 
+\input{l2k1}
+\clearpage
+
+\input{l2k2}
+\clearpage
+ 
+\input{l2k3} 
+\input{l2ksym}
+\clearpage
+ 
+\input{l2k4}
+\clearpage
+
+\input{l2k5}
+\clearpage
+
+\input{l2k6}
+\clearpage
+
+\input{l2ka}
+
+\begin{thebibliography}{99} \hbadness10000 % wg. URLs ;-)
+ 
+\bibitem{manual}
+L.~Lamport: \textit{Das \LaTeX-Handbuch.}
+Addison-Wesley Deutschland (1995)%, ISBN~3-89319-826-1
+. Deutsche "Uber"-setzung von~\cite{manual-eng}.
+
+\bibitem{manual-eng}
+L.~Lamport: \textit{\LaTeX, A Document Preparation System.}
+Ad\-di\-son-Wesley, 2.~Aufl. (1994)%, ISBN~0-201-52983-1
+.
+ 
+\bibitem{wonne}
+M.~Goossens, F.~Mittelbach und A.~Samarin:
+\textit{Der \LaTeX-Begleiter.}
+Ad\-di\-son Wesley Longman, 2.~korr.\ Nachdruck (1996)%, ISBN~3-89319-646-3
+.  Deutsche "Uber"-setzung von~\cite{wonne-eng}.
+
+\bibitem{wonne-eng}
+M.~Goossens, F.~Mittelbach und A.~Samarin:
+\textit{The \LaTeX\ Companion.}
+Ad\-di\-son-Wesley (1994)%, ISBN~0-201-54199-8
+.  
+
+\bibitem{ch8}
+M.~Goossens, F.~Mittelbach und A.~Samarin:
+\textit{Higher Mathematics.} 
+\path{<ftp://ftp.dante.de/tex-archive/info/companion-rev/ch8.pdf>} (1998).
+Aktualisierte Fassung von Kapitel\ 8 aus \cite{wonne-eng}.
+
+\bibitem{grfcomp}
+M.~Goossens, S.~Rahtz und F.~Mittelbach:
+\textit{The \LaTeX\ Graphics Companion.}
+Addison Wesley Longman (1997)% ISBN~0-201-85469-4
+.
+
+\bibitem{local}
+Zu jedem installierten \LaTeX-System sollte ein
+\emph{\LaTeX\ Local Guide} vorhanden sein, in dem alle f"ur
+dieses System spezifischen Angaben -- z.\,B.~die f"ur den
+Aufruf der Programme notwendigen Befehle und die zur Ver"-f"ugung
+stehenden Dokumentklassen, Pakete und Schriften -- angef"uhrt sind.
+ 
+\bibitem{usrguide}
+\LaTeX3 Project Team (Hrsg.): 
+\textit{\LaTeXe\ for authors.} 
+Bestandteil der Online-Dokumentation von \LaTeX,
+Datei \texttt{usrguide.tex}.  
+Aktuelle "Anderungen und Erg"anzungen sowie die Unterschiede zum fr"uheren 
+\LaTeX~2.09 sind hier dokumentiert.
+
+\bibitem{fntguide}
+\LaTeX3 Project Team (Hrsg.): 
+\textit{\LaTeXe\ font selection.}
+Bestandteil der Online-Dokumentation von \LaTeX,
+Datei \texttt{fntguide.tex}.
+
+\bibitem{clsguide}
+\LaTeX3 Project Team (Hrsg.): 
+\textit{\LaTeXe\ for class and package writers.} 
+Bestandteil der Online-Dokumentation von \LaTeX,
+Datei \texttt{clsguide.tex}.
+
+\bibitem{grfguide}
+D.~P.~Carlisle: \textit{Packages in the `graphics' bundle.} 
+Online-Dokumentation des \texttt{graphics}-Pakets,
+Datei \texttt{grfguide.ps}.
+
+\bibitem{epslatex}
+K.~Reckdahl: \textit{Using Imported Graphics in \LaTeXe.} \\
+\path{<ftp://ftp.dante.de/tex-archive/info/epslatex.ps>}
+
+%\bibitem{postscript}
+%S.~Rahtz: \textit{Notes on setup of PostScript fonts for \LaTeXe.} \\
+%\path{<ftp://ftp.dante.de/tex-archive/macros/latex/required/psnfss/psnfss2e.tex>}
+
+\bibitem{germdoc}
+B.~Raichle:
+\textit{Kurzbeschreibung -- \texttt{german.sty}.}
+\path{<ftp://ftp.dante.de/tex-archive/language/german/gerdoc.tex>}
+
+
+\bibitem{texbook}
+D.~E.~Knuth: \textit{Computers \& Typesetting, Vol.\ A: The \TeX{}~Book.}
+Addison-Wesley (1991)%, ISBN~0-201-13447-0
+.
+
+\bibitem{schwarz}
+N.~Schwarz: \textit{Einf"uhrung in \TeX -- incl.\ Version~3.0.}
+Oldenbourg, 3.~Aufl.\ (1991)%, ISBN 3-486-24349-7
+.
+ 
+\bibitem{germtug}
+H.~Partl: \textit{German \TeX.} TUG\-boat Vol.~9, No.~1 (1988).
+ 
+\bibitem{lay}
+H.~Partl und A.~Kielhorn: \textit{Layout-"Anderungen mit \LaTeX.}
+EDV-""Zentrum der Technischen Universit"at Wien,
+\path{<ftp://ftp.dante.de/tex-archive/macros/latex/contrib/supported/refman/>}
+(1996).
+
+\bibitem{lay2}
+D.~F.~Langmyhr: \textit{How to make your own document style in \LaTeXe.}
+In: \textit{Proceedings of the Eighth European \TeX{} Conference}
+(1994).
+
+\bibitem{typografie} A.~Reichert: \textit{Typografie -- Gestaltung einer 
+Beispielklasse.} \path{<ftp://ftp.dante.de/info/german/typografie/>} (1999).
+
+
+\end{thebibliography}
+ 
+\end{document}
